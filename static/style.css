@@ -1,0 +1,10 @@
+:root {
+  --kp-green: #009440;
+  --kp-white: #fff;
+  --kp-black: #000000;
+  --kp-light: #e5f4eb;
+}
+
+body {
+  background-color: var(--kp-green);
+}
