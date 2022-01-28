@@ -7,10 +7,79 @@
 
     <title>KP-stonks</title>
 
-    <link rel="stylesheet" href="/static/style.css" />
+    <!-- styles -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/static/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+      integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+      crossorigin=""
+    />
+    <style>
+      #map {
+        height: 400px;
+        cursor: pointer;
+      }
+    </style>
   </head>
 
   <body>
-    {% block content %} {{data}} {% endblock content %}
+    <div id="content">
+      <div class="banner">
+        <p>
+          <em
+            >Kotipizzan dynaamisen toimitushinnan haku koordinaattien mukaan</em
+          >
+        </p>
+      </div>
+
+      <div class="container">
+        <div class="column">
+          <header>
+            <h1 class="title">
+              <img src="/static/img/pizza.svg" width="60px" alt="" />
+              <a href="/" style="box-sizing: border-box">KP STONKS</a>
+            </h1>
+          </header>
+
+          <h2>
+            Kotipizzan
+            <span>dynaamisen toimitushinnan haku</span> koordinaattien mukaan
+          </h2>
+
+          <section>
+            <h3>Valitse sijainti</h3>
+
+            <div id="map"></div>
+          </section>
+
+          <section class="price">
+            <div class="card">
+              <p>Toimitushinta tällä hetkellä valitussa paikassa</p>
+              <div class="price-tag">
+                <p>{% block content %} {{data}} {% endblock content %}</p>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+    <footer id="footer">
+      <a href="#">Github</a>
+    </footer>
   </body>
 </html>
+
+<!-- Make sure you put this AFTER Leaflet's CSS -->
+<script
+  src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+  integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+  crossorigin=""
+></script>
+<script src="/static/js/index.js"></script>
