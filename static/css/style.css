@@ -33,7 +33,7 @@ h2 span {
 }
 
 h3 {
-  text-align: center;
+  text-align: left;
   margin-top: 3rem;
   margin-bottom: 1rem;
 }
@@ -101,19 +101,24 @@ h3 {
 }
 
 footer {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  width: 100%;
+  box-sizing: border-box;
+  color: white;
+  min-height: 40px;
   text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
   background-color: black;
-  height: 5vh;
+}
+
+.about {
+  margin-bottom: 5rem;
 }
 
 footer a {
   color: white;
-}
-
-#content {
-  height: 95vh;
 }
