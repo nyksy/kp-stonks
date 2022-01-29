@@ -1,3 +1,4 @@
+//leaflet
 var map = L.map("map").setView([66, 26], 4);
 
 L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
@@ -5,21 +6,36 @@ L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
 }).addTo(map);
 
-/* NOSONAR
-L.marker([51.5, -0.09])
-  .addTo(map)
-  .bindPopup("A pretty CSS3 popup.<br> Easily customizable.")
-  .openPopup();*/
+var marker = L.marker([62.6153386, 29.7500527]).addTo(map).openPopup();
 
-var marker;
-
-function onMapClick(e) {
+/**
+ * Händlätään kartan klikkaus eli siirretään markkeri ja haetaan uusi hinta
+ * @param {event} e
+ */
+async function onMapClick(e) {
   if (marker != undefined) {
     map.removeLayer(marker);
   }
 
   console.log(e.latlng);
   marker = L.marker(e.latlng).addTo(map);
+
+  //passataan koordinaatit flaskille
+  const coord = e.latlng; // no need for toString()
+  const lat = coord.lat;
+  const lng = coord.lng;
+
+  const res = await fetch(
+    "/loc?" +
+      new URLSearchParams({
+        lat: lat,
+        lng: lng,
+      })
+  );
+
+  console.log(await res.text());
+
+  //TODO käytä flaskin palauttamaa dataa päivittämään näkyvä hinta
 }
 
 async function load_geojson() {
@@ -29,6 +45,7 @@ async function load_geojson() {
   L.geoJson(data).addTo(map);
 }
 
+//TODO geojson, jossa pelkästään kunnat, joista löytyy kotipizza?
 load_geojson();
 
 map.on("click", onMapClick);

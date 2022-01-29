@@ -1,3 +1,3 @@
 # KP-stonks
 
-Kotipizzan dynaamisen toimitushinnan seuranta sijainnin mukaan.
+Kotipizzan dynaamisen toimitushinnan haku  sijainnin mukaan.
