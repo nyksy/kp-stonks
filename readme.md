@@ -6,7 +6,7 @@
     Kotipizzan dynaamisen toimitushinnan haku kartan avulla sijainnin mukaan.
     <br />
     <br />
-    <a href="#">Avaa</a>
+    <a href="https://kp-stonks.herokuapp.com/">Avaa</a>
   </p>
 </div>
 
