@@ -17,7 +17,7 @@
     "routes": [
         {
             "src": "/",
-            "dest": "templates/index.html"
+            "dest": "./app.py"
         }
     ]
 }
