@@ -1,3 +1,4 @@
+from tkinter import EXCEPTION
 import requests
 import json
 
@@ -12,15 +13,15 @@ def read_data_json(coords):
     return json.loads(req.content)
 
 
-def get_delivery_fee(coords=DEFAULT):
+def get_delivery_fee(coords=DEFAULT) -> str:
     data = read_data_json(coords)
 
     if data and len(data) > 0:
-
-        # TODO useamman ravintolan händläys mikäli niitä löytyy
+        # TODO useamman ravintolan händläys mikäli niitä löytyy, tällä hetkellä otetaan ensimmäinen
         data = data[0]
         if data['openForDeliveryStatus'] == "CLOSED":
             return "Suljettu!"
         if "dynamicDeliveryFee" in data:
             return str(data["dynamicDeliveryFee"]) + " €"
-        return "Tietoa ei saatavilla"
+        return "Tietoa ei saatavilla."
+    return "Tietoa ei saatavilla."

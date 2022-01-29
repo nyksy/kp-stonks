@@ -64,16 +64,26 @@
             <div class="card">
               <p>Toimitushinta tällä hetkellä valitussa paikassa</p>
               <div class="price-tag">
-                <p>{% block content %} {{data}} {% endblock content %}</p>
+                <p id="price-amount">{% block content %} {{data}} {% endblock content %}</p>
               </div>
               <!--TODO tähän vois lisätä myös ravintolan mistä hinta tällä hetkellä noudettu-->
             </div>
+          </section>
+
+          <section class="about">
+            <h3>Tietoa dynaamisesta hinnasta</h3>
+
+            <p>
+              Kotipizzan dynaaminen toimitushinta muodostuu kysynnän eli alueen
+              pizzerian kiireellisyyden mukaan. Kotipizza päivittää hinnan
+              kymmenen minuutin välein.
+            </p>
           </section>
         </div>
       </div>
     </div>
     <footer id="footer">
-      <a href="#">Github</a>
+      <a href="https://github.com/nyksy/kp-stonks">Projekti Githubissa</a>
     </footer>
   </body>
 </html>

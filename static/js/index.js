@@ -13,6 +13,9 @@ var marker = L.marker([62.6153386, 29.7500527]).addTo(map).openPopup();
  * @param {event} e
  */
 async function onMapClick(e) {
+  const pricetag = document.getElementById("price-amount");
+  pricetag.textContent = "Ladataan...";
+
   if (marker != undefined) {
     map.removeLayer(marker);
   }
@@ -27,15 +30,16 @@ async function onMapClick(e) {
 
   const res = await fetch(
     "/loc?" +
-      new URLSearchParams({
-        lat: lat,
-        lng: lng,
-      })
+    new URLSearchParams({
+      lat: lat,
+      lng: lng,
+    })
   );
 
-  console.log(await res.text());
+  const price = await res.text()
+  console.log(price);
 
-  //TODO käytä flaskin palauttamaa dataa päivittämään näkyvä hinta
+  pricetag.textContent = price;
 }
 
 async function load_geojson() {
@@ -46,6 +50,7 @@ async function load_geojson() {
 }
 
 //TODO geojson, jossa pelkästään kunnat, joista löytyy kotipizza?
+//TODO tai sitten kaikki kotipizzat 
 load_geojson();
 
 map.on("click", onMapClick);
