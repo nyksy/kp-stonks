@@ -27,9 +27,6 @@ def get_status():
     return jsonify({'status': 'ok'})
 
 
-if __name__ == '__main__':
-    app.run(threaded=True, port=5000)
-
 API_URL = 'https://apim-kotipizza-ecom-prod.azure-api.net/webshop/v1/restaurants/nearby?type=DELIVERY'
 COORDS = '&coordinates='
 DEFAULT = '62.6153386,29.7500527'
@@ -48,8 +45,12 @@ def get_delivery_fee(coords=DEFAULT) -> str:
         # TODO useamman ravintolan händläys mikäli niitä löytyy, tällä hetkellä otetaan ensimmäinen
         data = data[0]
         if data['openForDeliveryStatus'] == "CLOSED":
-            return "Suljettu!"
+            return "Suljettu."
         if "dynamicDeliveryFee" in data:
             return str(data["dynamicDeliveryFee"]) + " €"
         return "Tietoa ei saatavilla."
     return "Tietoa ei saatavilla."
+
+
+if __name__ == '__main__':
+    app.run(threaded=True, port=5000)
