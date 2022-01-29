@@ -6,7 +6,7 @@ L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
 }).addTo(map);
 
-var marker = L.marker([62.6153386, 29.7500527]).addTo(map).openPopup();
+var marker = L.marker([62.601440207749064, 29.756984710693363).addTo(map).openPopup();
 
 /**
  * Händlätään kartan klikkaus eli siirretään markkeri ja haetaan uusi hinta
