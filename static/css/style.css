@@ -121,4 +121,9 @@ footer {
 
 footer a {
   color: white;
+  padding: 0.5em;
+}
+
+section {
+  padding: 0.5em;
 }

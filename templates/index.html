@@ -6,6 +6,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>KP-stonks</title>
+    <meta name="title" content="KP-stonks" />
+    <meta
+      name="description"
+      content="Kotipizzan tämänhetkisen dynaamisen toimitushinnan haku koordinaattien mukaan"
+    />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://kp-stonks.herokuapp.com/" />
+    <meta property="og:title" content="KP-stonks" />
+    <meta
+      property="og:description"
+      content="Kotipizzan tämänhetkisen dynaamisen toimitushinnan haku koordinaattien mukaan"
+    />
+    <meta property="og:image" content="/static/img/thumbnail.png" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://kp-stonks.herokuapp.com/" />
+    <meta property="twitter:title" content="KP-stonks" />
+    <meta
+      property="twitter:description"
+      content="Kotipizzan tämänhetkisen dynaamisen toimitushinnan haku koordinaattien mukaan"
+    />
+    <meta property="twitter:image" content="/static/img/thumbnail.png" />
 
     <!-- styles -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -32,7 +57,7 @@
   <body>
     <div id="content">
       <div class="banner">
-        <p>
+        <p style="padding: 0.5em">
           <em
             >Kotipizzan tämänhetkisen dynaamisen toimitushinnan haku
             koordinaattien mukaan</em
@@ -45,11 +70,13 @@
           <header>
             <h1 class="title">
               <img src="/static/img/pizza.svg" width="60px" alt="" />
-              <a href="/" style="box-sizing: border-box">KP STONKS</a>
+              <a href="/" style="box-sizing: border-box; padding: 0.5em"
+                >KP STONKS</a
+              >
             </h1>
           </header>
 
-          <h2>
+          <h2 class="pd">
             Kotipizzan tämänhetkisen
             <span>dynaamisen toimitushinnan haku</span> koordinaattien mukaan
           </h2>
@@ -64,7 +91,9 @@
             <div class="card">
               <p>Toimitushinta tällä hetkellä valitussa paikassa</p>
               <div class="price-tag">
-                <p id="price-amount">{% block content %} {{data}} {% endblock content %}</p>
+                <p id="price-amount">
+                  {% block content %} {{data}} {% endblock content %}
+                </p>
               </div>
               <!--TODO tähän vois lisätä myös ravintolan mistä hinta tällä hetkellä noudettu-->
             </div>
